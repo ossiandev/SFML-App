@@ -10,21 +10,23 @@ int main()
     // Specifies a specific value for the framerate
     window.setFramerateLimit(60);
 
-  
 
-    // Circle shape
-    sf::CircleShape shape(100.0f);
-    shape.setFillColor(sf::Color::Blue);
-    shape.setPosition(window.getSize().x / 2, window.getSize().y / 2);
+    // Circle1 shape
+    sf::CircleShape circle1(100.0f);
+    circle1.setFillColor(sf::Color::Blue);
+    circle1.setPosition(500,500);
+
+    // Circle2
+    sf::CircleShape circle2(100.0f);
+    circle2.setFillColor(sf::Color::Green);
+    circle2.setPosition(800, 200);
 
     // Viewport
     sf::View view = window.getDefaultView();
 
-    while (window.isOpen())
-    {
+    while (window.isOpen()){
         sf::Event event;
-        while (window.pollEvent(event))
-        {
+        while (window.pollEvent(event)){
             // Close Event
             if (event.type == sf::Event::Closed)
             {
@@ -37,28 +39,15 @@ int main()
                 return 0;
             }
 
-            // Resize Event
-            else if (event.type == sf::Event::Resized) {
-                // resize my view
-                view.setSize({
-                        static_cast<float>(event.size.width),
-                        static_cast<float>(event.size.height)
-                    });
-
-                window.setView(view);
-                shape.setPosition(window.mapPixelToCoords(sf::Vector2i{ window.getSize() / 2u }));
-            }
-            /*
-            Code Goes here
-            */
-
-
-
 
         }
-
+ 
         window.clear();
-        window.draw(shape);
+
+        window.draw(circle1);
+        window.draw(circle2);
+
+
         window.display();
     }
 

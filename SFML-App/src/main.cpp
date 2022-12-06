@@ -11,6 +11,7 @@ int main()
     window.setFramerateLimit(60);
 
 
+        
     // Circle1 shape
     sf::CircleShape circle1(100.0f);
     circle1.setFillColor(sf::Color::Blue);
@@ -41,7 +42,22 @@ int main()
 
 
         }
- 
+
+        if (sf::Mouse::isButtonPressed) { 
+        circle2.setPosition(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y); 
+        }
+
+        float distX = circle1.getPosition().x - circle2.getPosition().x;
+        float distY = circle1.getPosition().y - circle2.getPosition().y;
+        float distance = sqrt((distX * distX) + (distY * distY));
+
+        if (distance <= circle1.getRadius() + circle2.getRadius()) {
+            circle1.setFillColor(sf::Color::Cyan);
+        }
+        else {
+            circle1.setFillColor(sf::Color::Green);
+        }
+
         window.clear();
 
         window.draw(circle1);

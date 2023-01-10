@@ -146,6 +146,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Object.cpp" />
+    <ClCompile Include="src\PhysicsObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\openal32.dll" />
@@ -170,6 +172,10 @@
     <None Include="sfml-system-d-2.dll" />
     <None Include="sfml-window-2.dll" />
     <None Include="sfml-window-d-2.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Object.h" />
+    <ClInclude Include="src\PhysicsObject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

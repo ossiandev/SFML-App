@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+//KOLLA ASTROIDS! ! ! 
 struct PhysicsObject
 {
     // Position, velocity, acceleration vectors and mass
@@ -11,14 +12,12 @@ struct PhysicsObject
     sf::Vector2f acceleration;
     float mass;
 
-    //Constructor
-
-
-
-
     // Forces acting on the object
     std::vector<sf::Vector2f> forces;
 
     // Updates the object's position, velocity, and acceleration based on the forces acting on it
     void update(float dt);
+
+    //Check if colliding with other PhysicsObject
+    void checkCollision(PhysicsObject other);
 };

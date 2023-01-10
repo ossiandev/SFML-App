@@ -1,6 +1,5 @@
 #pragma once
 #include "PhysicsObject.h"
-#include <SFML/Graphics.hpp>
 
 class Object
 {

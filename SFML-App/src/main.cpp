@@ -1,9 +1,4 @@
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
-#include <cmath>
 #include "PhysicsObject.h"
-#include "Object.h"
 
 
 
@@ -14,11 +9,6 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Fysik");
     std::cout << "New window opened\n";
 
-
-
-    Object object();
-
-
     //visual object
     sf::CircleShape circle(100.f, 600);
     circle.setFillColor(sf::Color::Blue);
@@ -26,10 +16,10 @@ int main()
     circle.setPosition(1280 / 2, 720 / 2);
 
     //Logic object
-    std::vector<PhysicsObject> objects;
-    
-    objects[0].mass = 1.f;
-    objects[0].displacement = circle.getPosition();
+
+    PhysicsObject logicObject;
+    logicObject.mass = 1.f;
+    logicObject.displacement = circle.getPosition();
 
 
     
@@ -46,7 +36,7 @@ int main()
     sf::Time time;
 
     //add gravity
-    objects[0].forces.push_back(sf::Vector2f(0, 9.8f));
+    logicObject.forces.push_back(sf::Vector2f(0, 9.8f));
 
     
     while (window.isOpen()) {
@@ -70,9 +60,9 @@ int main()
         time = clock.getElapsedTime();
 
  
-        objects[0].update(time.asSeconds());
+        logicObject.update(time.asSeconds());
 
-        circle.setPosition(objects[0].position);
+        circle.setPosition(logicObject.displacement);
 
 
         window.clear();

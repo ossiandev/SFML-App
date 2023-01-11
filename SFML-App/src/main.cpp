@@ -5,6 +5,7 @@
 
 int main()
 {
+
     // Create a window
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Fysik");
     std::cout << "New window opened\n";
@@ -20,6 +21,18 @@ int main()
     PhysicsObject logicObject;
     logicObject.mass = 1.f;
     logicObject.displacement = circle.getPosition();
+    
+    float size =50.f;
+
+    
+    sf::ConvexShape shape;
+    shape.setPointCount(4);
+    shape.setPoint(0,sf::Vector2f(0, 0));
+    shape.setPoint(1,sf::Vector2f(size,0));
+    shape.setPoint(2,sf::Vector2f(size,size));
+    shape.setPoint(3,sf::Vector2f(0, size));
+    shape.setFillColor(sf::Color::White);
+    shape.setPosition(1280 / 3, 720 / 3);
 
 
     
@@ -68,6 +81,7 @@ int main()
         window.clear();
 
         window.draw(circle);
+        window.draw(shape);
         window.display();
     }
 

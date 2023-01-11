@@ -20,7 +20,12 @@ void PhysicsObject::update(float dt)
 
 
     acceleration = totalForce / mass;
-    velocity += acceleration * dt * 0.2f;
+    velocity += acceleration * dt * 0.001f;
     displacement += velocity * dt;
+
+}
+
+void PhysicsObject::checkCollision(PhysicsObject other)
+{
 
 }

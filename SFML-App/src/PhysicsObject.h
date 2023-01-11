@@ -7,6 +7,7 @@
 struct PhysicsObject
 {
     // Position, velocity, acceleration vectors and mass
+    sf::ConvexShape shape;
     sf::Vector2f displacement;
     sf::Vector2f velocity;
     sf::Vector2f acceleration;
@@ -14,6 +15,8 @@ struct PhysicsObject
 
     // Forces acting on the object
     std::vector<sf::Vector2f> forces;
+
+
 
     // Updates the object's position, velocity, and acceleration based on the forces acting on it
     void update(float dt);

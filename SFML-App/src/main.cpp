@@ -22,18 +22,21 @@ int main()
     logicObject.mass = 1.f;
     logicObject.displacement = circle.getPosition();
     
-    float size =50.f;
+   
 
-    
+
     sf::ConvexShape shape;
     shape.setPointCount(4);
     shape.setPoint(0,sf::Vector2f(0, 0));
-    shape.setPoint(1,sf::Vector2f(size,0));
-    shape.setPoint(2,sf::Vector2f(size,size));
-    shape.setPoint(3,sf::Vector2f(0, size));
+    shape.setPoint(1,sf::Vector2f(250,0));
+    shape.setPoint(2,sf::Vector2f(150,200));
+    shape.setPoint(3,sf::Vector2f(0, 120));
     shape.setFillColor(sf::Color::White);
     shape.setPosition(1280 / 3, 720 / 3);
 
+    PhysicsObject polygon;
+    polygon.mass = 1.f;
+    polygon.displacement = shape.getPosition();
 
     
 
@@ -50,6 +53,7 @@ int main()
 
     //add gravity
     logicObject.forces.push_back(sf::Vector2f(0, 9.8f));
+    polygon.forces.push_back(sf::Vector2f(0, 9.8f));
 
     
     while (window.isOpen()) {
@@ -72,11 +76,11 @@ int main()
 
         time = clock.getElapsedTime();
 
- 
+        polygon.update(time.asSeconds());
         logicObject.update(time.asSeconds());
 
         circle.setPosition(logicObject.displacement);
-
+        shape.setPosition(polygon.displacement);
 
         window.clear();
 

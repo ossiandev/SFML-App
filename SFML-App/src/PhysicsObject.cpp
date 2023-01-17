@@ -10,7 +10,7 @@ void PhysicsObject::update(float dt)
     }
     */
 
-    // Sum the forces acting on the object
+    // Sum of the forces acting on the object
     sf::Vector2f totalForce = { 0.0f, 0.0f };
     for (const auto& force : forces) {
         totalForce += force;
@@ -25,7 +25,7 @@ void PhysicsObject::update(float dt)
 
 }
 
-void PhysicsObject::checkCollision(PhysicsObject other)
+void PhysicsObject::checkCollision(sf::ConvexShape other)
 {
 
 }

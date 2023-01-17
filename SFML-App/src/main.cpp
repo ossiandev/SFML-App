@@ -35,6 +35,8 @@ int main()
     PhysicsObject polygon;
     polygon.mass = 1.f;
     polygon.displacement = shape.getPosition();
+    polygon.shape = shape;
+
 
     
 
@@ -83,7 +85,7 @@ int main()
         window.clear();
 
         window.draw(circle);
-        window.draw(shape);
+        window.draw(polygon.shape);
  
         window.display();
     }

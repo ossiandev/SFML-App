@@ -22,5 +22,5 @@ struct PhysicsObject
     void update(float dt);
 
     //Check if colliding with other PhysicsObject
-    void checkCollision(PhysicsObject other);
+    void checkCollision(sf::ConvexShape other);
 };

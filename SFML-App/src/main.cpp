@@ -22,8 +22,6 @@ int main()
     logicObject.mass = 1.f;
     logicObject.displacement = circle.getPosition();
     
-   
-
 
     sf::ConvexShape shape;
     shape.setPointCount(4);
@@ -86,6 +84,7 @@ int main()
 
         window.draw(circle);
         window.draw(shape);
+ 
         window.display();
     }
 

@@ -4,7 +4,7 @@
 
 
 
-Vector2 OMath::FindLargestXCorner(ConvexShape shape)
+Vector2 OMath::FindLargestXSide(ConvexShape shape)
 {
 	// To store all the available .x coordinates
 	std::vector<float> points;
@@ -22,10 +22,10 @@ Vector2 OMath::FindLargestXCorner(ConvexShape shape)
 			return shape.getPoint(i);
 		}
 	}
-	return;
+	return zero;
 }
 
-Vector2 OMath::FindSmallestXCorner(ConvexShape shape)
+Vector2 OMath::FindSmallestXSide(ConvexShape shape)
 {
 	
 	// To store all the available .x coordinates
@@ -44,10 +44,10 @@ Vector2 OMath::FindSmallestXCorner(ConvexShape shape)
 			return shape.getPoint(i);
 		}
 	}
-	return;
+	return zero;
 }
 
-Vector2 OMath::FindLargestYCorner(ConvexShape shape)
+Vector2 OMath::FindLargestYSide(ConvexShape shape)
 {
 	// To store all the available .y coordinates
 	std::vector<float> points;
@@ -65,9 +65,9 @@ Vector2 OMath::FindLargestYCorner(ConvexShape shape)
 			return shape.getPoint(i);
 		}
 	}
-	return;
+	return zero;
 }
-Vector2 OMath::FindSmallestYCorner(ConvexShape shape)
+Vector2 OMath::FindSmallestYSide(ConvexShape shape)
 {
 	// To store all the available .y coordinates
 	std::vector<float> points;
@@ -85,7 +85,8 @@ Vector2 OMath::FindSmallestYCorner(ConvexShape shape)
 			return shape.getPoint(i);
 		}
 	}
-	return;
+
+	return zero;
 }
 
 

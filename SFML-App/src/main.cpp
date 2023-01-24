@@ -36,7 +36,7 @@ int main()
     polygon.mass = 1.f;
     polygon.displacement = shape.getPosition();
     polygon.shape = shape;
-
+    
 
     
 
@@ -75,6 +75,7 @@ int main()
         }
 
         time = clock.getElapsedTime();
+        std::cout << polygon.forces[0].x << " " << polygon.forces[0].y << "\n";
 
         polygon.update(time.asSeconds());
         logicObject.update(time.asSeconds());

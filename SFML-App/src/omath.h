@@ -7,12 +7,12 @@ typedef sf::Vector2f Vector2;
 typedef sf::ConvexShape ConvexShape;
 class OMath
 {
-	
+	Vector2 zero;
 
-	Vector2 FindLargestXCorner(ConvexShape shape);
-	Vector2 FindSmallestXCorner(ConvexShape shape);
-	Vector2 FindLargestYCorner(ConvexShape shape);
-	Vector2 FindSmallestYCorner(ConvexShape shape);
+	Vector2 FindLargestXSide(ConvexShape shape);
+	Vector2 FindSmallestXSide(ConvexShape shape);
+	Vector2 FindLargestYSide(ConvexShape shape);
+	Vector2 FindSmallestYSide(ConvexShape shape);
 
 
 };

@@ -21,6 +21,8 @@ struct PhysicsObject
     // Updates the object's position, velocity, and acceleration based on the forces acting on it
     void update(float dt);
 
+    void vectorUpdateDrag(float drag);
+
     //Check if colliding with other PhysicsObject
     void checkCollision(sf::ConvexShape other);
 };

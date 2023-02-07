@@ -11,8 +11,9 @@ struct PhysicsObject
     sf::Vector2f displacement;
     sf::Vector2f velocity;
     sf::Vector2f acceleration;
-    sf::Vector2f maxAcceleration;
     sf::Vector2f maxVelocity;
+    //gravity
+    sf::Vector2f gravity = sf::Vector2f(0,9.8f);
    
     float mass;
 
@@ -23,6 +24,8 @@ struct PhysicsObject
 
     // Updates the object's position, velocity, and acceleration based on the forces acting on it
     void update(float dt);
+
+    void addGravity();
 
     void vectorUpdateDrag(float drag);
 

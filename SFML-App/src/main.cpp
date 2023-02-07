@@ -5,7 +5,6 @@
 
 int main()
 {
-
     // Create a window
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Fysik");
     std::cout << "New window opened\n";
@@ -38,7 +37,7 @@ int main()
     polygon.shape = shape;
 
     
-
+    polygon.addGravity();
     
 
     // Specifies a specific value for the framerate
@@ -53,8 +52,8 @@ int main()
     sf::Time time;
 
     //add gravity
-    logicObject.forces.push_back(sf::Vector2f(0, 9.8f));
-    polygon.forces.push_back(sf::Vector2f(0, 9.8f));
+    //logicObject.forces.push_back(sf::Vector2f(0, 0.0f));
+    //polygon.forces.push_back(sf::Vector2f(0, 0.0f));
 
     
     while (window.isOpen()) {
@@ -76,14 +75,13 @@ int main()
         }
 
         time = clock.getElapsedTime();
-        std::cout << "Force " << polygon.forces[0].y << " Position: " << polygon.shape.getPosition().x << " " << polygon.shape.getPosition().y << "\n";
-        std::cout << "Acceleration: " << polygon.acceleration.x << " " <<polygon.acceleration.y << " Velocity: " << polygon.velocity.x << " " << polygon.velocity.y << "\n";
-
+        
         polygon.update(time.asSeconds());
         logicObject.update(time.asSeconds());
-        circle.setPosition(logicObject.displacement);
 
-        if (polygon.shape.getPosition().y <= 1030.f) { polygon.velocity.y * -1; polygon.forces[0].y * -1; }
+
+        circle.setPosition(logicObject.displacement);
+        
 
         shape.setPosition(polygon.displacement);
 

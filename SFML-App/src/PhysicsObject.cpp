@@ -12,7 +12,7 @@ void PhysicsObject::update(float dt)
 
     // Sum of the forces acting on the object
     sf::Vector2f totalForce = { 0.0f, 0.0f };
-
+    
     for (const auto& force : forces)
     {
         totalForce += force;
@@ -29,7 +29,7 @@ void PhysicsObject::update(float dt)
     {
         drag.y = (velocity.y * -0.2f) / mass;
     }
-
+    
 
     acceleration = totalForce / mass;
     
@@ -44,12 +44,16 @@ void PhysicsObject::update(float dt)
     //collision with ground.
     if (shape.getPosition().y >= 600)
     {
-        velocity.y = velocity.y * -1.0f;
-        velocity.x = velocity.x * -1.0f;
-      
+        velocity.y = velocity.y * -0.7f;
+        velocity.x = velocity.x * -0.7f;
+        
     }
    
     
+}
+void PhysicsObject::addGravity()
+{
+    forces.push_back(gravity);
 }
 void PhysicsObject::vectorUpdateDrag(float drag)
 {
@@ -90,7 +94,7 @@ void PhysicsObject::vectorUpdateDrag(float drag)
 
 void PhysicsObject::checkCollision(sf::ConvexShape other)
 {
-
+    
 
 
 

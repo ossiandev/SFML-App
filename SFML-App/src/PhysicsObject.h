@@ -11,6 +11,9 @@ struct PhysicsObject
     sf::Vector2f displacement;
     sf::Vector2f velocity;
     sf::Vector2f acceleration;
+    sf::Vector2f maxAcceleration;
+    sf::Vector2f maxVelocity;
+   
     float mass;
 
     // Forces acting on the object

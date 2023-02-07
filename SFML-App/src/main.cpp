@@ -36,6 +36,7 @@ int main()
     polygon.mass = 1.f;
     polygon.displacement = shape.getPosition();
     polygon.shape = shape;
+
     
 
     
@@ -75,12 +76,15 @@ int main()
         }
 
         time = clock.getElapsedTime();
-        std::cout << polygon.forces[0].x << " " << polygon.forces[0].y << "\n";
+        std::cout << "Force " << polygon.forces[0].y << " Position: " << polygon.shape.getPosition().x << " " << polygon.shape.getPosition().y << "\n";
+        std::cout << "Acceleration: " << polygon.acceleration.x << " " <<polygon.acceleration.y << " Velocity: " << polygon.velocity.x << " " << polygon.velocity.y << "\n";
 
         polygon.update(time.asSeconds());
         logicObject.update(time.asSeconds());
-
         circle.setPosition(logicObject.displacement);
+
+        if (polygon.shape.getPosition().y <= 1030.f) { polygon.velocity.y * -1; polygon.forces[0].y * -1; }
+
         shape.setPosition(polygon.displacement);
 
         window.clear();

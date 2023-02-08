@@ -2,12 +2,13 @@
 #include <cmath>
 #include <vector> // std::vector
 #include <SFML/Graphics.hpp> // contains include <algorithm>
+#include <iostream>
 
 typedef sf::Vector2f Vector2;
 typedef sf::ConvexShape ConvexShape;
-class OMath
+namespace OMath
 {
-	Vector2 zero;
+	
 
 	Vector2 FindLargestXSide(ConvexShape shape);
 	Vector2 FindSmallestXSide(ConvexShape shape);

@@ -41,20 +41,25 @@ void PhysicsObject::update(float dt)
     {
         velocity += drag;
     }
+
     //collision with ground.
+    
     if (shape.getPosition().y >= 600)
     {
-        velocity.y = velocity.y * -0.7f;
-        velocity.x = velocity.x * -0.7f;
+        //adds bounce
+        velocity.y *=  -1.0f;
+        velocity.x *=  -1.0f;
         
     }
-   
+    
+
     
 }
 void PhysicsObject::addGravity()
 {
     forces.push_back(gravity);
 }
+
 void PhysicsObject::vectorUpdateDrag(float drag)
 {
     for (auto& i : forces) {
@@ -95,10 +100,25 @@ void PhysicsObject::vectorUpdateDrag(float drag)
 void PhysicsObject::checkCollision(sf::ConvexShape other)
 {
     
+   /*
+   search x shadows along screen axis
+   findlargestxcorner
+   findsmallestxcorner for shape
+   then
+   findlargestxcorner
+   findsmallestxcorner for other
+   if(shape largest x is bigger than smaller other smallest x or other way around then collision between shadows is true) 
 
+   search y shadows along screen axis
+   repeat same steps for x axis but instead y
 
-
-
+   
+   
+   */
+    OMath::FindLargestXSide(shape);
+    OMath::FindSmallestXSide(shape);
+    OMath::FindLargestXSide(other);
+    OMath::FindSmallestXSide(other);
 
 
 

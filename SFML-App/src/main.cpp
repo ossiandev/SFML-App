@@ -8,7 +8,7 @@ int main()
     // Create a window
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Fysik");
     std::cout << "New window opened\n";
-
+    
     //visual object
     sf::CircleShape circle(100.f, 600);
     circle.setFillColor(sf::Color::Blue);
@@ -23,6 +23,7 @@ int main()
     
 
     sf::ConvexShape shape;
+    
     shape.setPointCount(4);
     shape.setPoint(0,sf::Vector2f(0, 0));
     shape.setPoint(1,sf::Vector2f(250,0));

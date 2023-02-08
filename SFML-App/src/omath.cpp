@@ -22,7 +22,8 @@ Vector2 OMath::FindLargestXSide(ConvexShape shape)
 			return shape.getPoint(i);
 		}
 	}
-	return zero;
+	std::cout << "build is fail.";
+	return sf::Vector2f(0, 0);
 }
 
 Vector2 OMath::FindSmallestXSide(ConvexShape shape)
@@ -44,7 +45,8 @@ Vector2 OMath::FindSmallestXSide(ConvexShape shape)
 			return shape.getPoint(i);
 		}
 	}
-	return zero;
+	std::cout << "build is fail.";
+	return sf::Vector2f(0,0);
 }
 
 Vector2 OMath::FindLargestYSide(ConvexShape shape)
@@ -65,7 +67,8 @@ Vector2 OMath::FindLargestYSide(ConvexShape shape)
 			return shape.getPoint(i);
 		}
 	}
-	return zero;
+	std::cout << "build is fail.";
+	return sf::Vector2f(0, 0);
 }
 Vector2 OMath::FindSmallestYSide(ConvexShape shape)
 {
@@ -85,8 +88,8 @@ Vector2 OMath::FindSmallestYSide(ConvexShape shape)
 			return shape.getPoint(i);
 		}
 	}
-
-	return zero;
+	std::cout << "build is fail.";
+	return sf::Vector2f(0, 0);
 }
 
 

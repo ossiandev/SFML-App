@@ -1,4 +1,4 @@
-#include "PhysicsObject.h"
+#include "collision.h"
 
 
 /*
@@ -10,7 +10,7 @@
 
 int main()
 {
-
+    Collision collision;
 
     // Create a window
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Fysik");
@@ -75,7 +75,7 @@ int main()
         {
             objects[0].shape.setPosition((float)sf::Mouse::getPosition(window).x-50, (float)sf::Mouse::getPosition(window).y-50);
         }
-   
+        collision.AABBCollision(objects[0], objects[1]);
         
        
       

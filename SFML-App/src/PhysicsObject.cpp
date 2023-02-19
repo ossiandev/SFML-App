@@ -3,7 +3,7 @@
 //Updates positional oriented values according to time and reaction
 void PhysicsObject::update(float dt)
 {
-
+    displacement = shape.getPosition();
 
     // Sum of the forces acting on the object
     sf::Vector2f totalForce = { 0.0f, 0.0f };
@@ -13,26 +13,20 @@ void PhysicsObject::update(float dt)
         totalForce += force;
     }
 
-    //calculate drag
-    sf::Vector2f drag; 
-
-    if(abs(velocity.x) < 0.01f)
-    {
-        drag.x = (velocity.x * -0.2f) / mass;
-    }
-    if(abs(velocity.y) < 0.01f)
-    {
-        drag.y = (velocity.y * -0.2f) / mass;
-    }
-    
 
     acceleration = totalForce / mass;
-    
     velocity += acceleration * dt * 0.001f;
     displacement += velocity * dt;
     shape.setPosition(displacement);
   
-    
+    if (colliding) {
+        shape.setFillColor(sf::Color::Blue);
+        colliding = false;
+    }
+    else 
+    {
+        shape.setFillColor(sf::Color::Red);
+    }
 
     
 }

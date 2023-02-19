@@ -10,10 +10,11 @@ namespace OMath
 {
 	
 
-	Vector2 FindLargestXSide(ConvexShape shape);
-	Vector2 FindSmallestXSide(ConvexShape shape);
-	Vector2 FindLargestYSide(ConvexShape shape);
-	Vector2 FindSmallestYSide(ConvexShape shape);
+	Vector2 findLargestXSide(ConvexShape shape);
+	Vector2 findSmallestXSide(ConvexShape shape);
+	Vector2 findLargestYSide(ConvexShape shape);
+	Vector2 findSmallestYSide(ConvexShape shape);
+	Vector2 findCOF(ConvexShape shape);
 
 
 };

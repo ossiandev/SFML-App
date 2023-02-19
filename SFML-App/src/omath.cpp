@@ -4,7 +4,7 @@
 
 
 
-Vector2 OMath::FindLargestXSide(ConvexShape shape)
+Vector2 OMath::findLargestXSide(ConvexShape shape)
 {
 	// To store all the available .x coordinates
 	std::vector<float> points;
@@ -22,11 +22,11 @@ Vector2 OMath::FindLargestXSide(ConvexShape shape)
 			return shape.getPoint(i);
 		}
 	}
-	std::cout << "build is fail.";
+	std::cout << "build is failing.";
 	return sf::Vector2f(0, 0);
 }
 
-Vector2 OMath::FindSmallestXSide(ConvexShape shape)
+Vector2 OMath::findSmallestXSide(ConvexShape shape)
 {
 	
 	// To store all the available .x coordinates
@@ -45,11 +45,11 @@ Vector2 OMath::FindSmallestXSide(ConvexShape shape)
 			return shape.getPoint(i);
 		}
 	}
-	std::cout << "build is fail.";
+	std::cout << "build is failing.";
 	return sf::Vector2f(0,0);
 }
 
-Vector2 OMath::FindLargestYSide(ConvexShape shape)
+Vector2 OMath::findLargestYSide(ConvexShape shape)
 {
 	// To store all the available .y coordinates
 	std::vector<float> points;
@@ -67,10 +67,10 @@ Vector2 OMath::FindLargestYSide(ConvexShape shape)
 			return shape.getPoint(i);
 		}
 	}
-	std::cout << "build is fail.";
+	std::cout << "build is failing.";
 	return sf::Vector2f(0, 0);
 }
-Vector2 OMath::FindSmallestYSide(ConvexShape shape)
+Vector2 OMath::findSmallestYSide(ConvexShape shape)
 {
 	// To store all the available .y coordinates
 	std::vector<float> points;
@@ -88,7 +88,7 @@ Vector2 OMath::FindSmallestYSide(ConvexShape shape)
 			return shape.getPoint(i);
 		}
 	}
-	std::cout << "build is fail.";
+	std::cout << "build is failing.";
 	return sf::Vector2f(0, 0);
 }
 

@@ -1,44 +1,27 @@
 #include "PhysicsObject.h"
 
 
+/*
 
+
+
+
+*/
 
 int main()
 {
+
+
     // Create a window
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Fysik");
     std::cout << "New window opened\n";
     
-    //visual object
-    sf::CircleShape circle(100.f, 600);
-    circle.setFillColor(sf::Color::Blue);
-    //set start pos for visual objectt
-    circle.setPosition(1280 / 2, 720 / 2);
+    // Start clock
+    sf::Clock clock;
+    clock.restart();
 
-    //Logic object
-
-    PhysicsObject logicObject;
-    logicObject.mass = 1.f;
-    logicObject.displacement = circle.getPosition();
-    
-
-    sf::ConvexShape shape;
-    
-    shape.setPointCount(4);
-    shape.setPoint(0,sf::Vector2f(0, 0));
-    shape.setPoint(1,sf::Vector2f(250,0));
-    shape.setPoint(2,sf::Vector2f(150,200));
-    shape.setPoint(3,sf::Vector2f(0, 120));
-    shape.setFillColor(sf::Color::White);
-    shape.setPosition(1280 / 3, 720 / 3);
-
-    PhysicsObject polygon;
-    polygon.mass = 1.f;
-    polygon.displacement = shape.getPosition();
-    polygon.shape = shape;
-
-    
-    polygon.addGravity();
+    //Time to keep track of passed amount of time
+    sf::Time time;
     
 
     // Specifies a specific value for the framerate
@@ -47,16 +30,29 @@ int main()
     // Viewport
     sf::View view = window.getDefaultView();
 
-    // Timer
-    sf::Clock clock;
-    clock.restart();
-    sf::Time time;
 
-    //add gravity
-    //logicObject.forces.push_back(sf::Vector2f(0, 0.0f));
-    //polygon.forces.push_back(sf::Vector2f(0, 0.0f));
-
+    //List of objects on screen
+    std::vector<PhysicsObject> objects;
     
+    //Adding objects
+    objects.push_back(PhysicsObject::PhysicsObject(sf::ConvexShape(4),1.f));
+    objects.push_back(PhysicsObject::PhysicsObject(sf::ConvexShape(4),1.f));
+    
+    //moving the points in the first object
+    objects[0].shape.setPosition(sf::Vector2f(500,500));
+    objects[0].shape.setPoint(1, sf::Vector2f(100,0));
+    objects[0].shape.setPoint(2, sf::Vector2f(100,100));
+    objects[0].shape.setPoint(3, sf::Vector2f(0,100));  
+    
+    objects[1].shape.setPosition(sf::Vector2f(100,100));
+    objects[1].shape.setPoint(1, sf::Vector2f(100,0));
+    objects[1].shape.setPoint(2, sf::Vector2f(100,100));
+    objects[1].shape.setPoint(3, sf::Vector2f(0,100));
+
+    //fill with color
+    objects[0].shape.setFillColor(sf::Color(255,0,0));
+    objects[1].shape.setFillColor(sf::Color(255,0,0));
+
     while (window.isOpen()) {
         
         sf::Event event;
@@ -68,28 +64,28 @@ int main()
                 std::cout << "Window closed\n";
                 window.close();
             }
-            if (event.type == sf::Event::KeyPressed)
-            {
-                window.close();
-                return 0;
-            }
+       
         }
+  
+
+        
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) &&
+            sqrt(pow((sf::Mouse::getPosition(window).x - (objects[0].shape.getPosition().x+50)), 2) +
+                pow((sf::Mouse::getPosition(window).y - (objects[0].shape.getPosition().y+50)), 2)) < 100)
+        {
+            objects[0].shape.setPosition((float)sf::Mouse::getPosition(window).x-50, (float)sf::Mouse::getPosition(window).y-50);
+        }
+   
+        
+       
+      
+
 
         time = clock.getElapsedTime();
-        
-        polygon.update(time.asSeconds());
-        logicObject.update(time.asSeconds());
-
-
-        circle.setPosition(logicObject.displacement);
-        
-
-        shape.setPosition(polygon.displacement);
-
         window.clear();
-
-        window.draw(circle);
-        window.draw(polygon.shape);
+        window.draw(objects[0].shape);
+        window.draw(objects[1].shape);
+        
  
         window.display();
     }

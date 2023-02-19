@@ -145,8 +145,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\collision.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Object.cpp" />
     <ClCompile Include="src\omath.cpp" />
     <ClCompile Include="src\PhysicsObject.cpp" />
   </ItemGroup>
@@ -175,7 +175,7 @@
     <None Include="sfml-window-d-2.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Object.h" />
+    <ClInclude Include="src\collision.h" />
     <ClInclude Include="src\omath.h" />
     <ClInclude Include="src\PhysicsObject.h" />
   </ItemGroup>

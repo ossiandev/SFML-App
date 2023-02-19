@@ -1,14 +1,9 @@
 #include "PhysicsObject.h"
 
+//Updates positional oriented values according to time and reaction
 void PhysicsObject::update(float dt)
 {
-    //if collision detected
 
-    /*
-    if(collision==true){
-    forces.pushback(forces.sum())
-    }
-    */
 
     // Sum of the forces acting on the object
     sf::Vector2f totalForce = { 0.0f, 0.0f };
@@ -37,29 +32,12 @@ void PhysicsObject::update(float dt)
     displacement += velocity * dt;
     shape.setPosition(displacement);
   
-    if (abs(velocity.x) >= 0.02f || abs(velocity.y) >= 0.02f)
-    {
-        velocity += drag;
-    }
-
-    //collision with ground.
-    
-    if (shape.getPosition().y >= 600)
-    {
-        //adds bounce
-        velocity.y *=  -1.0f;
-        velocity.x *=  -1.0f;
-        
-    }
     
 
     
 }
-void PhysicsObject::addGravity()
-{
-    forces.push_back(gravity);
-}
 
+//
 void PhysicsObject::vectorUpdateDrag(float drag)
 {
     for (auto& i : forces) {
@@ -97,33 +75,10 @@ void PhysicsObject::vectorUpdateDrag(float drag)
     
 }
 
-void PhysicsObject::checkCollision(sf::ConvexShape other)
+//Constructor
+PhysicsObject::PhysicsObject(sf::ConvexShape shape, float mass)
 {
-    
-   /*
-   search x shadows along screen axis
-   findlargestxcorner
-   findsmallestxcorner for shape
-   then
-   findlargestxcorner
-   findsmallestxcorner for other
-   if(shape largest x is bigger than smaller other smallest x or other way around then collision between shadows is true) 
-
-   search y shadows along screen axis
-   repeat same steps for x axis but instead y
-
-   
-   
-   */
-    OMath::FindLargestXSide(shape);
-    OMath::FindSmallestXSide(shape);
-    OMath::FindLargestXSide(other);
-    OMath::FindSmallestXSide(other);
-
-
-
-
-
-
-
+    this->shape = shape;
+    this->mass = mass;
 }
+

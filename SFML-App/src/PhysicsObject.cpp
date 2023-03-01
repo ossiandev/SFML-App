@@ -25,13 +25,14 @@ void PhysicsObject::update(float dt)
 
     //collision reaction. does not work bool 204
     if (colliding == true) {
-        std::cout << "its true!\n";
+        
         shape.setFillColor(sf::Color::Blue);
         
     }
     else if (colliding == false)
     {
-        std::cout << "its false!\n";
+
+        shape.setFillColor(sf::Color::Red);
 
     }
  

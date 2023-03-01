@@ -22,7 +22,7 @@ public:
     
   
     //For collision to enable reaction
-    bool colliding;
+    bool colliding =  false;
 
     // Forces acting on the object
     std::vector<sf::Vector2f> forces;

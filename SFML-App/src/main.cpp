@@ -22,7 +22,6 @@ Current Error:
 
 int main()
 {
-    Collision collision;
 
    
 
@@ -125,10 +124,13 @@ int main()
         //debugging tool. used to check values on console.
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
         {
-            for (int i = 0; i < objects[0].shape.getPointCount(); i++) {
-                std::cout << (objects[0].shape.getPosition().x + objects[0].shape.getPoint(i).x) <<  "\n ";
-                std::cout << " " << (objects[0].shape.getPosition().y + objects[0].shape.getPoint(i).y) << "\n";
-
+            Collision::AABBCollision(objects[0], objects[1]);
+            std::cout << objects[0].colliding << "\n";
+        }
+        else
+        {
+            for (int i = 0; i < objects.size(); i++) {
+                objects[i].colliding = false;
             }
         }
         

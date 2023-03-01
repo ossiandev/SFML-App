@@ -3,6 +3,7 @@
 //Updates positional oriented values according to time and reaction
 void PhysicsObject::update(float dt)
 {
+    //set where its going to where it is
     displacement = shape.getPosition();
 
     // Sum of the forces acting on the object
@@ -13,25 +14,31 @@ void PhysicsObject::update(float dt)
         totalForce += force;
     }
 
-
+    //calculate speed
     acceleration = totalForce / mass;
-    velocity += acceleration * dt * 0.001f;
+
+    velocity += acceleration * dt * 0.001f; // added 0.001f because it will go too fast otherwise
     displacement += velocity * dt;
+    //after calculating where velocity would have moved it with time change position
     shape.setPosition(displacement);
   
-    if (colliding) {
-        shape.setFillColor(sf::Color::Blue);
-        colliding = false;
-    }
-    else 
-    {
-        shape.setFillColor(sf::Color::Red);
-    }
 
+    //collision reaction. does not work bool 204
+    if (colliding == true) {
+        std::cout << "its true!\n";
+        shape.setFillColor(sf::Color::Blue);
+        
+    }
+    else if (colliding == false)
+    {
+        std::cout << "its false!\n";
+
+    }
+ 
     
 }
 
-//
+//very bad code, gonna rework
 void PhysicsObject::vectorUpdateDrag(float drag)
 {
     for (auto& i : forces) {
@@ -68,11 +75,16 @@ void PhysicsObject::vectorUpdateDrag(float drag)
     }
     
 }
+//thought constructor was a problem. so used initizalation list with a constructor to get rid of bool 204 bug. still doesnt work... 
 
 //Constructor
-PhysicsObject::PhysicsObject(sf::ConvexShape shape, float mass)
-{
-    this->shape = shape;
-    this->mass = mass;
-}
+
+/*
+PhysicsObject::PhysicsObject(sf::ConvexShape shape, float mass) :
+    shape(shape), mass(mass),
+    displacement(sf::Vector2f()), velocity(sf::Vector2f()), acceleration(sf::Vector2f()), maxVelocity(sf::Vector2f()),
+    colliding(false) {};
+
+*/
+
 

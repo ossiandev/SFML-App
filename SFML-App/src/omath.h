@@ -14,6 +14,7 @@ namespace OMath
 	Vector2 findSmallestXSide(ConvexShape shape);
 	Vector2 findLargestYSide(ConvexShape shape);
 	Vector2 findSmallestYSide(ConvexShape shape);
+
 	Vector2 findCOF(ConvexShape shape);
 
 

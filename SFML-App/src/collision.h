@@ -9,7 +9,7 @@ class Collision
 {
 public:
 	//code meant to be used within 
-	void AABBCollision(PhysicsObject object, PhysicsObject otherObject);
-	void SATCollision(PhysicsObject object, PhysicsObject otherObject);
+	void AABBCollision(PhysicsObject& object, PhysicsObject& otherObject);
+	void SATCollision(PhysicsObject& object, PhysicsObject& otherObject);
 
 };

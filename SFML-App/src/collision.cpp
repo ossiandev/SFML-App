@@ -1,6 +1,6 @@
 #include "collision.h"
 
-void Collision::AABBCollision(PhysicsObject object, PhysicsObject otherObject)
+void Collision::AABBCollision(PhysicsObject& object, PhysicsObject& otherObject)
 {
 	//AABB collision
 

@@ -2,9 +2,11 @@
 
 void PhysicsObject::updateBool()
 {
-    if (colliding)
+    if (!colliding)
     {
+        //std::cout << "COLLIDING ";
         colliding = true;
+       // std::cout << colliding<<" ";
     }
     else
     {

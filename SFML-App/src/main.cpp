@@ -120,12 +120,15 @@ int main()
         {
             objects[0].shape.setPosition((float)sf::Mouse::getPosition(window).x-50, (float)sf::Mouse::getPosition(window).y-50);
         }
+       
+        /*
         collision.AABBCollision(objects[0], objects[1]);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
         {
+            
             std::cout << objects[0].colliding << "\n";
         }
-        
+        */
        
       
 
@@ -157,9 +160,11 @@ int main()
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
         {
             collision.AABBCollision(objects[0], objects[1]);
+           // objects[0].updateBool();
+           // objects[1].updateBool();
             //objects[1].colliding = Collision::AABBCollision(objects[0], objects[1]);
-            std::cout << objects[0].colliding << "Object BOOL\n";
-            std::cout << objects[1].velocity.x << " " << objects[1].velocity.y << "\n";
+            std::cout << objects[0].colliding << " Object BOOL\n";
+           // std::cout << objects[1].velocity.x << " " << objects[1].velocity.y << "\n";
 
         }
         else

@@ -8,7 +8,7 @@ void PhysicsObject::updateBool()
     }
     else
     {
-        colliding = false;
+
     }
 }
 
@@ -29,7 +29,7 @@ void PhysicsObject::update(float dt)
     //calculate speed
     acceleration = totalForce / mass;
 
-    velocity += acceleration * dt * 0.001f; // added 0.001f because it will go too fast otherwise
+    velocity += acceleration * dt * 0.1f; // added 0.001f because it will go too fast otherwise
     displacement += velocity * dt;
     //after calculating where velocity would have moved it with time change position
     shape.setPosition(displacement);

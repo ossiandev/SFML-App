@@ -3,8 +3,7 @@
 void Collision::AABBCollision(PhysicsObject object, PhysicsObject otherObject)
 {
 	//AABB collision
-	if (true)
-	{
+
 		//collision detected, send colliding trigger
 
 		/*
@@ -13,21 +12,14 @@ void Collision::AABBCollision(PhysicsObject object, PhysicsObject otherObject)
 		I want to make a void within PhysicsObject.h where it calulates how much it should
 		
 		*/
-		object.colliding = true;
-		otherObject.colliding = true;
+		object.updateBool();
+		otherObject.updateBool();
 		//object.shape.setFillColor(sf::Color(255, 255, 0);
 	
 	
 
 		//returns colliding bool as 204
-		
-	}
-	else
-	{
-		//No collision so sending nothing
-		//send nothing
 
-	}
 
 }
 /*

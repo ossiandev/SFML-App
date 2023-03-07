@@ -18,10 +18,10 @@ public:
     sf::Vector2f maxVelocity;
     float mass;
     //Storing shape in physicsobject
-    void updateBool();
     sf::ConvexShape shape;
     //Bool for collision to enable reaction
     bool colliding = false;
+    void updateBool();
 
     // Forces acting on the object
     std::vector<sf::Vector2f> forces;

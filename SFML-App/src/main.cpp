@@ -39,6 +39,7 @@ int main()
 
     // Specifies a specific value for the framerate
     window.setFramerateLimit(60);
+    
 
     // Viewport
     sf::View view = window.getDefaultView();
@@ -83,6 +84,10 @@ int main()
     objects[1].shape.setFillColor(sf::Color(255,0,0));
 
     objects[1].velocity = sf::Vector2f(0,2.f);
+
+    objects[1].forces.push_back(sf::Vector2f(0, 10.f));
+    objects[1].mass = 2;
+
     /*
     to make objects or move in a direction.
     you can change the following vectors in objects[i]
@@ -154,6 +159,7 @@ int main()
             collision.AABBCollision(objects[0], objects[1]);
             //objects[1].colliding = Collision::AABBCollision(objects[0], objects[1]);
             std::cout << objects[0].colliding << "Object BOOL\n";
+            std::cout << objects[1].velocity.x << " " << objects[1].velocity.y << "\n";
 
         }
         else

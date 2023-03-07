@@ -18,6 +18,7 @@ public:
     sf::Vector2f maxVelocity;
     float mass;
     //Storing shape in physicsobject
+    void updateBool();
     sf::ConvexShape shape;
     
   

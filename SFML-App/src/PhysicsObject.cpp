@@ -24,11 +24,13 @@ void PhysicsObject::update(float dt)
   
 
     //collision reaction. does not work bool 204
+    //change color
     if (colliding == true) {
         
         shape.setFillColor(sf::Color::Blue);
         
     }
+    //change color
     else if (colliding == false)
     {
 
@@ -75,6 +77,11 @@ void PhysicsObject::vectorUpdateDrag(float drag)
 
     }
     
+}
+
+void PhysicsObject::updateBool() 
+{
+
 }
 //thought constructor was a problem. so used initizalation list with a constructor to get rid of bool 204 bug. still doesnt work... 
 

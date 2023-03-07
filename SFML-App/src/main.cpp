@@ -22,16 +22,14 @@ Current Error:
 
 int main()
 {
-
+    Collision collision;
    
-
     // Create a window
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Fysik");
     std::cout << "New window opened\n";
     
     // Start clock
     sf::Clock clock;
-    clock.restart();
 
     //Time to keep track of passed amount of time
     sf::Time time;
@@ -75,6 +73,7 @@ int main()
     objects[0].shape.setFillColor(sf::Color(255,0,0));
     objects[1].shape.setFillColor(sf::Color(255,0,0));
 
+    objects[1].velocity = sf::Vector2f(0,2.f);
     /*
     to make objects or move in a direction.
     you can change the following vectors in objects[i]
@@ -87,7 +86,7 @@ int main()
 
 
     while (window.isOpen()) {
-        
+
         sf::Event event;
         //Window Updates
         while (window.pollEvent(event)) {
@@ -120,12 +119,14 @@ int main()
                 objects[i].shape.setPosition((float)sf::Mouse::getPosition(window).x - 50, (float)sf::Mouse::getPosition(window).y - 50);
             }
         }
-
+        
         //debugging tool. used to check values on console.
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
         {
-            Collision::AABBCollision(objects[0], objects[1]);
-            std::cout << objects[0].colliding << "\n";
+            collision.AABBCollision(objects[0], objects[1]);
+            //objects[1].colliding = Collision::AABBCollision(objects[0], objects[1]);
+            std::cout << objects[0].colliding << "Object BOOL\n";
+
         }
         else
         {

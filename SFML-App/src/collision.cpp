@@ -16,14 +16,17 @@ void Collision::AABBCollision(PhysicsObject object, PhysicsObject otherObject)
 		object.colliding = true;
 		otherObject.colliding = true;
 		//object.shape.setFillColor(sf::Color(255, 255, 0);
-		std::cout << "Object is " << object.colliding << "!\n";
+	
+	
 
 		//returns colliding bool as 204
+		
 	}
 	else
 	{
 		//No collision so sending nothing
 		//send nothing
+
 	}
 
 }

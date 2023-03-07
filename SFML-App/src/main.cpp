@@ -33,6 +33,8 @@ int main()
 
     //Time to keep track of passed amount of time
     sf::Time time;
+    sf::Time oldTime;
+
     
 
     // Specifies a specific value for the framerate
@@ -41,7 +43,7 @@ int main()
     // Viewport
     sf::View view = window.getDefaultView();
 
-
+    
 
     //List of objects on screen
     std::vector<PhysicsObject> objects;
@@ -91,7 +93,7 @@ int main()
     */
 
 
-
+   
     while (window.isOpen()) {
 
         sf::Event event;
@@ -128,8 +130,10 @@ int main()
         //Update every objects position.
         for (int i = 0; i < objects.size(); i++)
         {
-            objects[i].update(time.asSeconds());
+            objects[i].update(time.asSeconds()-oldTime.asSeconds());
         }
+        //Time oldTime
+        oldTime = time;
         
         //drag objects with mouse
         for (int i = 0; i < objects.size(); i++)

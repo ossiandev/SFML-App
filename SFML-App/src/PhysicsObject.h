@@ -30,8 +30,7 @@ public:
     void update(float dt);
     void vectorUpdateDrag(float drag);
 
-    //Constructor, order is as follows: shape nd then mass
-    PhysicsObject(sf::ConvexShape shape, float mass);
+
     //Conclusion: All other things being equal, your code will run faster if you use initialization lists rather than assignment. -https://isocpp.org/wiki/faq/ctors#init-lists
 // 
 //Constructor with initialization list, syntax: sf::ConvexShape shape, float mass

@@ -21,7 +21,6 @@ void PhysicsObject::update(float dt)
   
     if (colliding) {
         shape.setFillColor(sf::Color::Blue);
-        colliding = false;
     }
     else 
     {
@@ -70,9 +69,12 @@ void PhysicsObject::vectorUpdateDrag(float drag)
 }
 
 //Constructor
+/*
 PhysicsObject::PhysicsObject(sf::ConvexShape shape, float mass)
 {
     this->shape = shape;
     this->mass = mass;
 }
+
+*/
 

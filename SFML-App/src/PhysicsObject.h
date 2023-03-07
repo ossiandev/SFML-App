@@ -6,7 +6,7 @@
 #include <math.h>
 #include "omath.h"
 
-                                                                    //KOLLA ASTROIDS! ! ! 
+                         //KOLLA ASTROIDS! ! ! 
 struct PhysicsObject
 {
     
@@ -20,7 +20,7 @@ struct PhysicsObject
     sf::ConvexShape shape;
 
     //Bool for collision to enable reaction
-    bool colliding = false;
+    bool colliding;
 
     // Forces acting on the object
     std::vector<sf::Vector2f> forces;
@@ -30,7 +30,7 @@ struct PhysicsObject
     void vectorUpdateDrag(float drag);
 
     //Constructor, order is as follows: shape and then mass
-    PhysicsObject(sf::ConvexShape shape, float mass);
+    //PhysicsObject(sf::ConvexShape shape, float mass);
 
 };
 

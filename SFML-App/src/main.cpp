@@ -33,10 +33,12 @@ int main()
 
     //List of objects on screen
     std::vector<PhysicsObject> objects;
-    
+    PhysicsObject object;
+    object.shape = sf::ConvexShape(4);
+    object.mass = 1;
     //Adding objects
-    objects.push_back(PhysicsObject::PhysicsObject(sf::ConvexShape(4),1.f));
-    objects.push_back(PhysicsObject::PhysicsObject(sf::ConvexShape(4),1.f));
+    objects.push_back(object);
+    objects.push_back(object);
     
     //moving the points in the first object
     objects[0].shape.setPosition(sf::Vector2f(500,500));
@@ -76,6 +78,10 @@ int main()
             objects[0].shape.setPosition((float)sf::Mouse::getPosition(window).x-50, (float)sf::Mouse::getPosition(window).y-50);
         }
         collision.AABBCollision(objects[0], objects[1]);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+        {
+            std::cout << objects[0].colliding << "\n";
+        }
         
        
       

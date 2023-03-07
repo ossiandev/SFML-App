@@ -7,12 +7,8 @@
 
 class Collision
 {
-	//code meant to be used within collision
-private:
-	
-	
-	//code that is used outside collision
-public: 
+public:
+	//code meant to be used within 
 	void AABBCollision(PhysicsObject object, PhysicsObject otherObject);
 	void SATCollision(PhysicsObject object, PhysicsObject otherObject);
 

@@ -21,8 +21,9 @@ public:
     sf::ConvexShape shape;
     //Bool for collision to enable reaction
     bool colliding = false;
-    void updateBool();
 
+    //Allow one object to be dragged
+    bool beingDragged = false;
     // Forces acting on the object
     std::vector<sf::Vector2f> forces;
 

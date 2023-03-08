@@ -1,18 +1,5 @@
 #include "PhysicsObject.h"
 
-void PhysicsObject::updateBool()
-{
-    if (!colliding)
-    {
-        //std::cout << "COLLIDING ";
-        colliding = true;
-       // std::cout << colliding<<" ";
-    }
-    else
-    {
-
-    }
-}
 
 //Updates positional oriented values according to time and reaction
 void PhysicsObject::update(float dt)
@@ -28,37 +15,32 @@ void PhysicsObject::update(float dt)
         totalForce += force;
     }
 
-    //calculate speed
+    //calculate velocity
     acceleration = totalForce / mass;
-
-    velocity += acceleration * dt * 0.1f; // added 0.001f because it will go too fast otherwise
-    displacement += velocity * dt;
-    //after calculating where velocity would have moved it with time change position
-    shape.setPosition(displacement);
+    velocity += acceleration * dt; 
+   
+    //check if it's colliding
     if (colliding) {
-        shape.setFillColor(sf::Color::Blue);
-    }
-    else 
-    {
-        shape.setFillColor(sf::Color::Red);
-    }
 
-    //collision reaction. does not work bool 204
-    //change color
-    if (colliding == true) {
-        
         shape.setFillColor(sf::Color::Blue);
-        
+        velocity = velocity * -1.f;
+
+        for (int i = 0; i < forces.size(); i++)
+        {
+            forces[i] *= -1.f;
+        }
+
     }
-    //change color
-    else if (colliding == false)
+    // if it's not we change it back
+    else if (!colliding)
     {
 
         shape.setFillColor(sf::Color::Red);
 
     }
- 
     
+    displacement += velocity * dt;
+    shape.setPosition(displacement);
 }
 
 //very bad code, gonna rework
@@ -100,21 +82,15 @@ void PhysicsObject::vectorUpdateDrag(float drag)
 }
 
 //Constructor
-/*
-PhysicsObject::PhysicsObject(sf::ConvexShape shape, float mass)
-
-void PhysicsObject::updateBool() 
-{
-
-}
-//thought constructor was a problem. so used initizalation list with a constructor to get rid of bool 204 bug. still doesnt work... 
-
-//Constructor
 
 /*
 PhysicsObject::PhysicsObject(sf::ConvexShape shape, float mass) :
-    shape(shape), mass(mass),
-    displacement(sf::Vector2f()), velocity(sf::Vector2f()), acceleration(sf::Vector2f()), maxVelocity(sf::Vector2f()),
+    shape(shape),
+    mass(mass),
+    displacement(sf::Vector2f()), 
+    velocity(sf::Vector2f()),
+    acceleration(sf::Vector2f()),
+    maxVelocity(sf::Vector2f()),
     colliding(false) {};
 
 */

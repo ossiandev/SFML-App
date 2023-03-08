@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\force.cpp" />
     <ClCompile Include="src\collision.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\omath.cpp" />
@@ -175,6 +176,7 @@
     <None Include="sfml-window-d-2.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\force.h" />
     <ClInclude Include="src\collision.h" />
     <ClInclude Include="src\omath.h" />
     <ClInclude Include="src\PhysicsObject.h" />

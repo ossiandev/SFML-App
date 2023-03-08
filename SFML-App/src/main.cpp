@@ -22,6 +22,10 @@ Current Error:
 
 int main()
 {
+    //debug
+    bool ePressed = false;
+
+    //collision manager
     Collision collision;
    
     // Create a window
@@ -35,7 +39,6 @@ int main()
     sf::Time time;
     sf::Time oldTime;
 
-    
 
     // Specifies a specific value for the framerate
     window.setFramerateLimit(60);
@@ -88,17 +91,15 @@ int main()
     objects[1].forces.push_back(sf::Vector2f(0, 10.f));
     objects[1].mass = 2;
 
-    /*
-    to make objects or move in a direction.
-    you can change the following vectors in objects[i]
+             /*
+             to make objects or move in a direction.
+             you can change the following vectors in objects[i]
 
-    objects[i].forces.push_back(sf::Vector2f(x,y))  adds forces in one direction. There is no limit to the max velocity it can gain.
-    objects[i].velocity(sf::Vector2f(x,y)) gives object speed 
-    objects[i].maxVelocity(sf::Vector2f(x,y)) set max speed. (not working because i havent coded it yet.)
-    */
+             objects[i].forces.push_back(sf::Vector2f(x,y))  adds forces in one direction. There is no limit to the max velocity it can gain.
+             objects[i].velocity(sf::Vector2f(x,y)) gives object speed 
+             objects[i].maxVelocity(sf::Vector2f(x,y)) set max speed. (not working because i havent coded it yet.)
+             */
 
-
-   
     while (window.isOpen()) {
 
         sf::Event event;
@@ -112,67 +113,57 @@ int main()
             }
        
         }
-        
-
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) &&
-            sqrt(pow((sf::Mouse::getPosition(window).x - (objects[0].shape.getPosition().x+50)), 2) +
-                pow((sf::Mouse::getPosition(window).y - (objects[0].shape.getPosition().y+50)), 2)) < 100)
-        {
-            objects[0].shape.setPosition((float)sf::Mouse::getPosition(window).x-50, (float)sf::Mouse::getPosition(window).y-50);
-        }
-       
-        /*
-        collision.AABBCollision(objects[0], objects[1]);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
-        {
-            
-            std::cout << objects[0].colliding << "\n";
-        }
-        */
-       
-      
-
-
+        //Check new time
         time = clock.getElapsedTime();
+        //Find all collision on screen
+        
+        //Broad phase (find all possible collisions)
+
+        //Narrow phase (calculate if they are colliding)
+        collision.AABBCollision(objects[0], objects[1]);
 
         //Update every objects position.
         for (int i = 0; i < objects.size(); i++)
         {
+            //update with delta time
             objects[i].update(time.asSeconds()-oldTime.asSeconds());
         }
         //Time oldTime
         oldTime = time;
-        
+ 
         //drag objects with mouse
         for (int i = 0; i < objects.size(); i++)
         {
             //distance formula
+            
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left) &&
                 sqrt(pow((sf::Mouse::getPosition(window).x - (objects[i].shape.getPosition().x + 50)), 2) +
                     pow((sf::Mouse::getPosition(window).y - (objects[i].shape.getPosition().y + 50)), 2)) < 100)
             {
                
                 objects[i].shape.setPosition((float)sf::Mouse::getPosition(window).x - 50, (float)sf::Mouse::getPosition(window).y - 50);
+                objects[i].beingDragged = true;
+            }
+            else
+            {
+                objects[i].beingDragged = false;
+
             }
         }
-        
+
         //debugging tool. used to check values on console.
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
         {
-            collision.AABBCollision(objects[0], objects[1]);
-           // objects[0].updateBool();
-           // objects[1].updateBool();
-            //objects[1].colliding = Collision::AABBCollision(objects[0], objects[1]);
-            std::cout << objects[0].colliding << " Object BOOL\n";
-           // std::cout << objects[1].velocity.x << " " << objects[1].velocity.y << "\n";
-
+    
+            std::cout << "Velocity\n" << objects[0].velocity.x << " x\n";
+            std::cout << objects[0].velocity.y << " y\n";
+            ePressed = true;
         }
-        else
+        else if(!sf::Keyboard::isKeyPressed(sf::Keyboard::E))
         {
-            for (int i = 0; i < objects.size(); i++) {
-                objects[i].colliding = false;
-            }
+            ePressed = false;
         }
+       
         
 
         //Draw objects.

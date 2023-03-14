@@ -92,5 +92,22 @@ Vector2 OMath::findSmallestYSide(ConvexShape shape)
 	return sf::Vector2f(0, 0);
 }
 
+Vector2 OMath::shapeCenter(ConvexShape shape)
+{
+
+	float mX = 0;
+	float mY = 0;
+	for (int i = 0; i < shape.getPointCount(); i++)
+	{
+		mX = shape.getPoint(i).x;
+		mY = shape.getPoint(i).y;
+
+	}
+	mX /= shape.getPointCount();
+	mY /= shape.getPointCount();
+
+	return Vector2(mX, mY);
+}
+
 
 

@@ -24,7 +24,7 @@ int main()
 {
     //debug
     bool ePressed = false;
-
+    int objectAmount = 6;
     //collision manager
     Collision collision;
    
@@ -52,13 +52,21 @@ int main()
     //List of objects on screen
     std::vector<PhysicsObject> objects;
     PhysicsObject object;
+    //Initizalitor object
     object.shape = sf::ConvexShape(4);
     object.mass = 1;
+    
+    //lock objects in screen
+    std::vector<PhysicsObject> walls;
+    
     //Adding objects
 
-    objects.push_back(object);
-    objects.push_back(object);
+    for (int i = 0 ;i < objectAmount; i++)
+    {
+        objects.push_back(object);
 
+    }
+  
 
     PhysicsObject sampleObject;
 
@@ -152,11 +160,10 @@ int main()
         }
 
         //debugging tool. used to check values on console.
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::E) || ePressed)
         {
     
-            std::cout << "Velocity\n" << objects[0].velocity.x << " x\n";
-            std::cout << objects[0].velocity.y << " y\n";
+            
             ePressed = true;
         }
         else if(!sf::Keyboard::isKeyPressed(sf::Keyboard::E))
@@ -172,7 +179,6 @@ int main()
         window.draw(objects[0].shape);
         window.draw(objects[1].shape);
         
- 
         window.display();
     }
 

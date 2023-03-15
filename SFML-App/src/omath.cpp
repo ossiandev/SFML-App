@@ -22,7 +22,7 @@ Vector2 OMath::findLargestXSide(ConvexShape shape)
 			return shape.getPoint(i);
 		}
 	}
-	std::cout << "build is failing.";
+	//should never reach here
 	return sf::Vector2f(0, 0);
 }
 
@@ -99,14 +99,25 @@ Vector2 OMath::shapeCenter(ConvexShape shape)
 	float mY = 0;
 	for (int i = 0; i < shape.getPointCount(); i++)
 	{
-		mX = shape.getPoint(i).x;
-		mY = shape.getPoint(i).y;
+		//Sum up all the point x:es and y:s
+		mX += shape.getPoint(i).x;
+		mY += shape.getPoint(i).y;
 
 	}
 	mX /= shape.getPointCount();
 	mY /= shape.getPointCount();
 
 	return Vector2(mX, mY);
+}
+
+Vector2 OMath::normalize(ConvexShape shape)
+{
+	//delta x 
+	
+	//If we define dx = x2 - x1 and dy = y2 - y1, then the normals are(-dy, dx) and (dy, -dx).
+
+
+	return;
 }
 
 

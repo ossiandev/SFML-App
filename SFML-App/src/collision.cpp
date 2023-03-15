@@ -24,6 +24,15 @@ void Collision::AABBCollision(PhysicsObject& object, PhysicsObject& otherObject)
 
 void Collision::SATCollision(PhysicsObject& object, PhysicsObject& otherObject)
 {
+
+	
+
+}
+
+
+
+
+/*
 	/*
 	https://gamedevelopment.tutsplus.com/tutorials/collision-detection-using-the-separating-axis-theorem--gamedev-169
 
@@ -53,36 +62,30 @@ A_{magnitude}*cos(\theta)
 
 	any of them return nothing!
 	optional: cry throughout whole ordeal
-	*/
+	
 
 	//step 1
-	if (!object.shape.getPosition().x < otherObject.shape.getPosition().x + OMath::findLargestXSide(otherObject.shape).x &&
-		otherObject.shape.getPosition().x < object.shape.getPosition().x + OMath::findLargestXSide(object.shape).x &&
-		object.shape.getPosition().y < otherObject.shape.getPosition().y + OMath::findLargestYSide(otherObject.shape).y &&
-		otherObject.shape.getPosition().y < object.shape.getPosition().y + OMath::findLargestYSide(object.shape).y)
-	{
-		object.colliding = false;
-		otherObject.colliding = false;
-	}
-
-	//step 2
-	
-
-	//suggestion to make code
-	/*
-	find closest and farthest dot of shape that are connected to eachother before calculating p axis
-	*/
-	float pMagn = 
-		sqrt(
-		pow((object.shape.getPoint(3).x - object.shape.getPoint(2).x), 2) +
-		pow((object.shape.getPoint(3).y - object.shape.getPoint(2).y), 2));
-
-	//step 3
-
-	
-
+if (!object.shape.getPosition().x < otherObject.shape.getPosition().x + OMath::findLargestXSide(otherObject.shape).x &&
+	otherObject.shape.getPosition().x < object.shape.getPosition().x + OMath::findLargestXSide(object.shape).x &&
+	object.shape.getPosition().y < otherObject.shape.getPosition().y + OMath::findLargestYSide(otherObject.shape).y &&
+	otherObject.shape.getPosition().y < object.shape.getPosition().y + OMath::findLargestYSide(object.shape).y)
+{
+	object.colliding = false;
+	otherObject.colliding = false;
 }
 
+//step 2
 
 
+//suggestion to make code
 
+find closest and farthest dot of shape that are connected to eachother before calculating p axis
+
+float pMagn =
+sqrt(
+	pow((object.shape.getPoint(3).x - object.shape.getPoint(2).x), 2) +
+	pow((object.shape.getPoint(3).y - object.shape.getPoint(2).y), 2));
+
+//step 3
+
+*/

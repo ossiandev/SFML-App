@@ -16,6 +16,9 @@ namespace OMath
 	Vector2 findSmallestYSide(ConvexShape shape);
 	//for convex shapes
 	Vector2 shapeCenter(ConvexShape shape);
+	
+	//Calculate Normals on the shape
+	Vector2 normalize(ConvexShape shape);
 
 
 };

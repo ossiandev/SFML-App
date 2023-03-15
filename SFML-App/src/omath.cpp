@@ -112,7 +112,7 @@ Vector2 OMath::shapeCenter(ConvexShape shape)
 
 Vector2 OMath::normalize(ConvexShape shape)
 {
-	//delta x 
+	//this returns a normal vector which will become an axis for SAT calculations
 	
 	//If we define dx = x2 - x1 and dy = y2 - y1, then the normals are(-dy, dx) and (dy, -dx).
 
